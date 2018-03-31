@@ -21,9 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	        auth.inMemoryAuthentication()
-	     
-	          .withUser("admin").password("qwerty").roles("ADMIN");
+	        auth.userDetailsService(customUserDetailsService());
 	    }
 	@SuppressWarnings("deprecation")
 	  @Bean
